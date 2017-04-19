@@ -1,0 +1,68 @@
+<html>
+<head>
+<title> Application</title>
+<style>
+	.header > p { padding-left: 450px; padding-top: 25px; font-size: 35px; font-face: bold;}
+	.header { background-color: green; height:  100px; display: block;}
+	.err { color: red;}
+	.noerr { color: green;}
+	.content {display:block; margin-top: 25px;}
+	.btn { display: block; color: blue; }
+</style>
+</head>
+<body>
+<div class='header'>
+	<p >Welcome to JobPortal</p>
+</div>
+<div class='content'>
+	<form action="{{ action }}" method="POST">
+	{% csrf_token %}
+	
+	<div class='err'>
+		{% if form.errors %}
+			<p>* All values are mandatory!</p>
+		{% endif %}
+	</div>
+	
+	<div class='noerr'>
+		{% if success %}
+			<p> Your Application has been submitted successfully!</p>
+		{% endif %}
+	</div>
+
+	<table>
+		<tr>
+			<td>{{ form.title.label_tag }}</td>
+			<td>{{ form.title }}
+		</tr>
+		<tr>
+			<td>{{ form.first_name.label_tag }}</td>
+			<td>{{ form.first_name }}
+		</tr>
+		<tr>
+			<td>{{ form.address.label_tag }}</td>
+			<td>{{ form.address }}
+		</tr>
+		<tr>
+			<td>{{ form.dob.label_tag }}</td>
+			<td>{{ form.dob }}
+		</tr>
+		<tr>
+			<td>{{ form.mobile_number.label_tag }}</td>
+			<td>{{ form.mobile_number }}
+		</tr>
+		<tr>
+			<td>{{ form.email.label_tag }}</td>
+			<td>{{ form.email }}
+		</tr>
+		<tr>
+			<td>{{ form.position_sought.label_tag }}</td>
+			<td>{{ form.position_sought }}
+		</tr>
+	</table>
+	
+	<input type="submit" value="Submit" class='btn'/>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<head>
+<title> Application</title>
+</head>
+<body>
+<p> Welcome to JobPortal</p>
+{{ form }}
+<form action="{{ action }}" method="POST">
+	{% csrf_token %}
+	{% for field in form %}
+		{{ field }}
+	{% endfor %}
+<input type="submit" value="Save" />
+</form>
+</body>
+</html>
