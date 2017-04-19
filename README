@@ -1,1 +1,30 @@
-A portal to apply jobs
+Installation Required:
+
+Below are the steps required to configure project in local system
+
+pip install virtualenv
+virtualenv <env>
+cd <env>
+for Linux: run source bin/activate
+for windows: run Scripts/activate.bat
+
+pip install --upgrade pip
+
+git clone https://github.com/sivachandranp/recruitsite.git
+
+cd recruitsite/jobportal
+
+pip install -r requirements.txt
+
+Modification Required:
+
+1. To configure local database update database name, username & password in settings.py
+2. To create model, run
+  2.1 python manage.py makemigrations
+  2.2 python manage.py migrate
+3. To setup an admin account run 
+  3.1 python manage.py createsuperuser
+4. To run development server, enter the below command
+    python manage.py runserver
+5. To goto admin portal type url http:<servername>:<port>/admin in address bar 
+
